@@ -104,4 +104,50 @@ export default {
 }
 
 /* -------- */
+
+/* -------- */
+.left2rightv2-enter-active,
+.left2rightv2-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+.left2rightv2-leave-active {
+  position: absolute;
+}
+.left2rightv2-enter-to,
+.left2rightv2-leave {
+  opacity: 1;
+}
+.left2rightv2-enter {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.left2rightv2-leave-to {
+  opacity: 0;
+  transform: translateX(750px);
+}
+
+/* --------- */
+.right2leftv2-enter-active,
+.right2leftv2-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.right2leftv2-leave-active {
+  position: absolute;
+}
+
+.right2leftv2-enter-to,
+.right2leftv2-leave {
+  opacity: 1;
+}
+.right2leftv2-enter {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.right2leftv2-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
 </style>
