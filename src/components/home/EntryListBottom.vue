@@ -74,13 +74,11 @@ export default {
   mounted() {
     if (window.innerWidth < 500) {
       this.isMobile = true;
-      console.log("hit");
       this.maxVisibleEntries = 2;
     } else {
       this.isMobile = false;
       this.maxVisibleEntries = 3;
     }
-    window.onresize = event => {};
     this.updateVisibleEntries(this.currentOffset);
   },
   computed: {

@@ -4,7 +4,7 @@
 
     <div id="routine-card" class="relative flex flex-col bg-main1 rounded-lg p-4 mx-auto my-auto">
       <transition name="right2left">
-        <Info ref="info" @show="toggleInfo" v-show="showInfo" />
+        <Info ref="info" @show="toggleInfo" v-show="showInfo && !isMobile" />
       </transition>
       <transition name="right2left">
         <p
@@ -118,10 +118,18 @@ export default {
     return {
       showInfo: false,
       showMoodError: false,
+      isMobile: false,
 
       currentMood: null,
       currentDescription: ""
     };
+  },
+  mounted() {
+    if (window.innerWidth < 500) {
+      this.isMobile = true;
+    } else {
+      this.isMobile = false;
+    }
   },
   methods: {
     toggleInfo: function() {
