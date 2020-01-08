@@ -99,7 +99,7 @@ export default {
   transform: translateX(100px);
 }
 
-#trans {
+.trans {
   transition: all 0.25s ease;
 }
 
