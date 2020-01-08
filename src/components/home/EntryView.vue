@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full h-full px-8">
-    <div id="entry-view" class="relative w-full bg-main1 mx-auto my-auto rounded p-4">
+    <div id="entry-view" class="relative w-full md:w-128 bg-main1 mx-auto my-auto rounded p-4">
       <component id="entry-rating" :is="moodImage[rating]"></component>
       <CloseButton
         @click="$store.dispatch('deselectEntry')"
