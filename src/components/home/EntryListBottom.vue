@@ -8,7 +8,7 @@
           @click="goBackward"
           class="trans fill-current text-accent2 cursor-pointer"
         />
-        <div v-bind:name="transitionName" class="flex mx-auto">
+        <transition-group v-bind:name="transitionName" class="flex mx-auto">
           <div
             v-for="entry in visibleEntries"
             :key="entry.date"
@@ -22,7 +22,8 @@
             <p v-if="!isMobile" class="select-none">{{ convertTime(entry) }}</p>
             <p v-else class="select-none">{{ convertTimeMobile(entry) }}</p>
           </div>
-        </div>
+        </transition-group>
+
         <RightArrow
           id="right-arrow"
           v-bind:class="{ 'cursor-not-allowed opacity-50': atBeginning }"
