@@ -16,7 +16,7 @@
             'border-accent2': isSelected(entry)
           }"
             @click="() => selectEntry(entry)"
-            class="trans entry-item w-32 md:w-40 flex items-center p-2 bg-main1 text-accent2 mx-2 rounded-lg cursor-pointer border-2 border-main1 hover:border-accent2"
+            class="trans entry-item w-32 md:w-40 flex items-center p-2 bg-main1 text-accent2 mx-2 rounded-lg cursor-pointer border-2 border-main1 md:hover:border-accent2"
           >
             <component class="w-8 h-8 m-2" :is="moodImage[entry.rating]"></component>
             <p v-if="!isMobile" class="select-none">{{ convertTime(entry) }}</p>

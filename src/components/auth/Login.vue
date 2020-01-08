@@ -3,10 +3,10 @@
     <div>
       <h1
         id="title"
-        class="absolute w-full mt-8 font-display font-bold text-accent2 text-center cursor-default"
+        class="w-full mt-8 font-display font-bold text-accent2 text-center cursor-default leading-none"
       >jurnul.</h1>
     </div>
-    <div id="login-box" class="mx-auto my-auto p-8 rounded-lg shadow font-body">
+    <div id="login-box" class="mx-auto mt-8 p-8 rounded-lg shadow font-body">
       <h1
         id="login-header"
         class="text-center text-5xl text-accent2 font-display leading-none"
