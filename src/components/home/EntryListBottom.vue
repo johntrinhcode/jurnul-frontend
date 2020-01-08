@@ -1,5 +1,5 @@
 <template>
-  <div id="entries" class="absolute flex items-center bottom-0 h-48 w-full">
+  <div id="entries" class="flex items-center bottom-0 p-4 w-full">
     <ul class="relative flex w-128 h-full items-center mx-auto">
       <div class="relative mx-auto">
         <LeftArrow

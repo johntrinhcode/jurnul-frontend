@@ -1,5 +1,7 @@
 <template>
-  <div id="routine" class="flex w-full h-full">
+  <div id="routine" class="flex flex-col w-full h-full">
+    <div class="w-full h-16"></div>
+
     <div id="routine-card" class="relative flex flex-col bg-main1 rounded-lg p-4 mx-auto my-auto">
       <transition name="right2left">
         <Info ref="info" @show="toggleInfo" v-show="showInfo" />
