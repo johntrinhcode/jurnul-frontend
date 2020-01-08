@@ -77,4 +77,27 @@ export default {
   opacity: 0;
   transform: translateX(-100px);
 }
+
+/* ------- */
+
+.left2right-enter-active,
+.left2right-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+
+.left2right-enter-to,
+.left2right-leave {
+  opacity: 1;
+}
+.left2right-enter {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.left2right-leave-to {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+/* -------- */
 </style>
