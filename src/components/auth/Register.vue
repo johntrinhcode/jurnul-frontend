@@ -1,11 +1,14 @@
 <template>
   <div id="register" class="flex flex-col">
-    <div id="register-box" class="relative w-full mx-auto my-auto p-8 rounded-lg shadow font-body">
-      <button @click="back" id="back-button" class="md:absolute focus:outline-none">
+    <div
+      id="register-box"
+      class="flex flex-col relative w-full mx-auto my-auto p-2 rounded-lg shadow font-body"
+    >
+      <button @click="back" id="back-button" class="absolute z-10 focus:outline-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          class="w-12 h-12 fill-current text-accent2"
+          class="w-6 h-6 fill-current text-accent2"
         >
           <path
             class="heroicon-ui"
@@ -13,10 +16,13 @@
           />
         </svg>
       </button>
-      <h1
-        id="register-header"
-        class="text-center text-5xl text-accent2 font-display leading-none"
-      >make an account,</h1>
+      <div class="relative w-full">
+        <h1
+          id="register-header"
+          class="text-center text-5xl text-accent2 font-display leading-none"
+        >make an account,</h1>
+      </div>
+
       <p class="text-center text-accent1 font-main text-sm">begin your self care</p>
       <hr class="border-t border-main2 mt-2" />
       <transition name="grow">
@@ -159,7 +165,7 @@ select:-webkit-autofill:focus {
 }
 
 #register-box {
-  width: 20rem;
+  width: 18rem;
 
   background-color: #fcf2f0;
   -webkit-box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);
@@ -228,10 +234,5 @@ input {
 #password-error,
 #duplicate-error {
   height: auto;
-}
-
-#back-button {
-  left: -4rem;
-  top: 2rem;
 }
 </style>
