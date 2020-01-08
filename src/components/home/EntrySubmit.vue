@@ -27,7 +27,7 @@
               }
             "
             v-bind:class="{ 'bg-main2': currentMood == 0 }"
-            class="emoji trans w-12 h-12 p-2 mx-2 cursor-pointer rounded hover:bg-main2"
+            class="emoji trans w-12 h-12 p-2 mx-2 cursor-pointer rounded md:hover:bg-main2"
           />
           <p class="text-center text-xs text-accent2">bad</p>
         </div>
@@ -39,7 +39,7 @@
               }
             "
             v-bind:class="{ 'bg-main2': currentMood == 1 }"
-            class="emoji trans w-12 h-12 p-2 mx-2 cursor-pointer rounded hover:bg-main2"
+            class="emoji trans w-12 h-12 p-2 mx-2 cursor-pointer rounded md:hover:bg-main2"
           />
           <p class="text-center text-xs text-accent2">not good</p>
         </div>
@@ -51,7 +51,7 @@
               }
             "
             v-bind:class="{ 'bg-main2': currentMood == 2 }"
-            class="emoji trans w-12 h-12 p-2 mx-2 cursor-pointer rounded hover:bg-main2"
+            class="emoji trans w-12 h-12 p-2 mx-2 cursor-pointer rounded md:hover:bg-main2"
           />
           <p class="text-center text-xs text-accent2">ok</p>
         </div>
@@ -63,7 +63,7 @@
               }
             "
             v-bind:class="{ 'bg-main2': currentMood == 3 }"
-            class="emoji trans w-12 h-12 p-2 mx-2 cursor-pointer rounded hover:bg-main2"
+            class="emoji trans w-12 h-12 p-2 mx-2 cursor-pointer rounded md:hover:bg-main2"
           />
           <p class="text-center text-xs text-accent2">good</p>
         </div>
@@ -75,7 +75,7 @@
               }
             "
             v-bind:class="{ 'bg-main2': currentMood == 4 }"
-            class="emoji trans w-12 h-12 p-2 mx-2 cursor-pointer rounded hover:bg-main2"
+            class="emoji trans w-12 h-12 p-2 mx-2 cursor-pointer rounded md:hover:bg-main2"
           />
           <p class="text-center text-xs text-accent2">great</p>
         </div>
@@ -89,7 +89,7 @@
 
       <button
         @click="submitEntry"
-        class="trans p-2 bg-accent2 rounded text-white mt-4 hover:bg-accent1"
+        class="trans p-2 bg-accent2 rounded text-white mt-4 md:hover:bg-accent1"
       >save entry</button>
     </div>
   </div>
