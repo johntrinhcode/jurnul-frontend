@@ -3,7 +3,7 @@
     <div>
       <h1
         id="title"
-        class="w-full mt-8 font-display font-bold text-accent2 text-center cursor-default leading-none"
+        class="w-full md:mt-8 font-display font-bold text-accent2 text-center cursor-default leading-none"
       >jurnul.</h1>
     </div>
     <div id="login-box" class="mx-auto mt-8 p-8 rounded-lg shadow font-body">
@@ -44,19 +44,16 @@
           <LoadingSpinner v-else class="flex w-12 mx-auto" />
         </button>
       </form>
-      <div class="relative block text-center">
-        <div id="bottom-options" class="absolute w-full">
-          <div class="text-sm">
-            <p class="inline text-accent1">don't have an account?</p>
-            <p
-              @click="registerRedirect"
-              class="inline text-accent2 pl-2 cursor-pointer"
-            >register here</p>
-          </div>
-          <div class="text-sm">
-            <p class="inline text-accent1">forgot your password?</p>
-            <p class="inline text-accent2 pl-2 cursor-pointer">recover it here</p>
-          </div>
+    </div>
+    <div class="relative block text-center mt-4">
+      <div id="bottom-options" class="absolute w-full">
+        <div class="text-sm">
+          <p class="inline text-accent1">don't have an account?</p>
+          <p @click="registerRedirect" class="inline text-accent2 pl-2 cursor-pointer">register here</p>
+        </div>
+        <div class="text-sm">
+          <p class="inline text-accent1">forgot your password?</p>
+          <p class="inline text-accent2 pl-2 cursor-pointer">recover it here</p>
         </div>
       </div>
     </div>
@@ -216,7 +213,6 @@ select:-webkit-autofill:focus {
 }
 
 #bottom-options {
-  bottom: -7.5rem;
   line-height: 20px;
 }
 
