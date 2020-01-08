@@ -1,7 +1,7 @@
 <template>
   <div id="register" class="flex flex-col">
     <div id="register-box" class="relative w-full mx-auto my-auto p-8 rounded-lg shadow font-body">
-      <button @click="back" id="back-button" class="absolute focus:outline-none">
+      <button @click="back" id="back-button" class="md:absolute focus:outline-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

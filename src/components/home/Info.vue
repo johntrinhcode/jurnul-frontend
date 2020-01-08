@@ -1,14 +1,9 @@
 <template>
-  <div
-    id="info"
-    class="absolute flex flex-col items-center w-64 p-2 bg-main1 rounded"
-  >
+  <div id="info" class="absolute flex flex-col items-center w-64 p-2 bg-main1 rounded-lg">
     <div>
       <p
         class="text-center text-accent2 text-xl font-bold font-display text-sm leading-none"
-      >
-        {{ currentDay }}
-      </p>
+      >{{ currentDay }}</p>
       <p class="text-center text-accent2 text-sm">{{ currentTime }}</p>
     </div>
 
@@ -16,20 +11,14 @@
       <div class="flex w-full self-start items-center">
         <img :src="currentWeatherIcon" class="w-12 h-12" />
         <div class="text-left">
-          <p class="text-accent2 text-sm">
-            {{ Math.round(currentTemperature * 10) / 10 }}&#8457;
-          </p>
+          <p class="text-accent2 text-sm">{{ Math.round(currentTemperature * 10) / 10 }}&#8457;</p>
           <p class="text-accent2 text-sm">{{ currentWeather.toLowerCase() }}</p>
         </div>
       </div>
 
       <div class="w-full text-right mr-2">
-        <p class="text-accent2 font-bold font-main text-sm">
-          {{ currentLocationCity }},
-        </p>
-        <p class="text-accent2 font-bold font-main text-sm">
-          {{ currentLocationState }}
-        </p>
+        <p class="text-accent2 font-bold font-main text-sm">{{ currentLocationCity }},</p>
+        <p class="text-accent2 font-bold font-main text-sm">{{ currentLocationState }}</p>
       </div>
     </div>
   </div>

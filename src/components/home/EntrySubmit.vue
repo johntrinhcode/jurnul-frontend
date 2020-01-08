@@ -1,9 +1,6 @@
 <template>
   <div id="routine" class="flex w-full h-full">
-    <div
-      id="routine-card"
-      class="relative w-full flex flex-col bg-main1 rounded p-4"
-    >
+    <div id="routine-card" class="relative flex flex-col bg-main1 rounded-lg p-4 mx-auto my-auto">
       <transition name="right2left">
         <Info ref="info" @show="toggleInfo" v-show="showInfo" />
       </transition>
@@ -12,19 +9,13 @@
           id="mood-error"
           v-show="showMoodError"
           class="trans absolute text-center font-display font-semibold text-accent1"
-        >
-          don't forget to pick your mood 😳
-        </p>
+        >don't forget to pick your mood 😳</p>
       </transition>
 
       <p
         class="text-center text-6xl font-display font-semibold leading-none text-accent2"
-      >
-        hi {{ $store.getters.userInfo.name.split(" ")[0].toLowerCase() }},
-      </p>
-      <p class="font-main text-accent1 font-bold text-center">
-        How was your day?
-      </p>
+      >hi {{ $store.getters.userInfo.name.split(" ")[0].toLowerCase() }},</p>
+      <p class="font-main text-accent1 font-bold text-center">How was your day?</p>
       <div id="emoji-row" class="flex items-center mx-auto mt-4">
         <div class="flex flex-col">
           <VerySadEmoji
@@ -97,9 +88,7 @@
       <button
         @click="submitEntry"
         class="trans p-2 bg-accent2 rounded text-white mt-4 hover:bg-accent1"
-      >
-        save entry
-      </button>
+      >save entry</button>
     </div>
   </div>
 </template>
@@ -186,10 +175,6 @@ export default {
 
 <style>
 #routine-card {
-  width: 32rem;
-
-  margin: auto;
-
   -webkit-box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);
   -moz-box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);
   box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);

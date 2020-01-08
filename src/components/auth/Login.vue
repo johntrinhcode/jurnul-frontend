@@ -1,21 +1,21 @@
 <template>
   <div id="login" class="flex flex-col">
+    <div>
+      <h1
+        id="title"
+        class="absolute w-full mt-8 font-display font-bold text-accent2 text-center cursor-default"
+      >jurnul.</h1>
+    </div>
     <div id="login-box" class="mx-auto my-auto p-8 rounded-lg shadow font-body">
       <h1
         id="login-header"
         class="text-center text-5xl text-accent2 font-display leading-none"
-      >
-        welcome,
-      </h1>
-      <p class="text-center text-accent1 font-main text-sm">
-        sign into your account
-      </p>
+      >welcome,</h1>
+      <p class="text-center text-accent1 font-main text-sm">sign into your account</p>
       <hr class="border-t border-main2 mt-2" />
       <transition name="grow">
         <div v-if="loginError" class="mt-2">
-          <p class="text-center text-sm text-error">
-            incorrect email or password
-          </p>
+          <p class="text-center text-sm text-error">incorrect email or password</p>
         </div>
       </transition>
       <form @submit="login" class="flex flex-col mt-2 px-4">
@@ -29,9 +29,7 @@
           id="email"
           class="h-10 rounded pl-2 text-accent1 border-2 border-white focus:border-accent1"
         />
-        <label for="password" class="text-accent1 text-sm font-main mt-2"
-          >password</label
-        >
+        <label for="password" class="text-accent1 text-sm font-main mt-2">password</label>
         <input
           required
           v-model="passwordInput"
@@ -41,10 +39,9 @@
           id="password"
           class="h-10 rounded pl-2 text-accent1 border-2 border-white focus:border-accent1"
         />
-        <button
-          class="h-16 rounded text-2xl bg-accent2 mt-4 focus:outline-none hover:bg-accent1"
-        >
-          <div class="text-white">login</div>
+        <button class="h-16 rounded text-2xl bg-accent2 mt-4 focus:outline-none hover:bg-accent1">
+          <div v-if="!isLoading" class="text-white">login</div>
+          <LoadingSpinner v-else class="flex w-12 mx-auto" />
         </button>
       </form>
       <div class="relative block text-center">
@@ -54,15 +51,11 @@
             <p
               @click="registerRedirect"
               class="inline text-accent2 pl-2 cursor-pointer"
-            >
-              register here
-            </p>
+            >register here</p>
           </div>
           <div class="text-sm">
             <p class="inline text-accent1">forgot your password?</p>
-            <p class="inline text-accent2 pl-2 cursor-pointer">
-              recover it here
-            </p>
+            <p class="inline text-accent2 pl-2 cursor-pointer">recover it here</p>
           </div>
         </div>
       </div>
@@ -71,18 +64,24 @@
 </template>
 
 <script>
+import LoadingSpinner from "../../assets/spinner/three-dots.svg";
 export default {
   name: "Login",
+  components: {
+    LoadingSpinner
+  },
   data() {
     return {
       emailInput: null,
       passwordInput: null,
       id: null,
-      loginError: false
+      loginError: false,
+      isLoading: false
     };
   },
   methods: {
     login: async function(event) {
+      this.isLoading = true;
       event.preventDefault();
 
       const payload = {
@@ -106,7 +105,7 @@ export default {
                 "Content-Type": "application/json"
               }
             })
-            .then(response => {
+            .then(async response => {
               const userInfo = response.data;
 
               this.$store.commit("login", {
@@ -118,6 +117,7 @@ export default {
             .catch(error => {
               console.log(error.response.data);
               this.loginError = true;
+              this.isLoading = false;
             });
           // Redirect user to homepage.
           this.$router.push("/");
@@ -125,6 +125,7 @@ export default {
         .catch(error => {
           console.log(error.response.data);
           this.loginError = true;
+          this.isLoading = false;
         });
     },
     registerRedirect: function() {
@@ -167,6 +168,11 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: #c9a6a1;
   font-size: inherit;
   transition: font-size 5000s ease-in-out 0s;
+}
+
+#title {
+  font-size: 5rem;
+  letter-spacing: 0.15rem;
 }
 
 #login {

@@ -1,38 +1,28 @@
 <template>
-  <div class="flex w-full h-full">
-    <div id="entry-view" class="relative bg-main1 mx-auto my-auto rounded p-4">
+  <div class="flex w-full h-full px-8">
+    <div id="entry-view" class="relative w-full bg-main1 mx-auto my-auto rounded p-4">
       <component id="entry-rating" :is="moodImage[rating]"></component>
       <CloseButton
         @click="$store.dispatch('deselectEntry')"
         class="absolute top-0 right-0 fill-current text-accent2 m-2 cursor-pointer"
       />
 
-      <p
-        class="text-center text-accent2 text-4xl font-bold font-display leading-tight"
-      >
-        {{ date }}
-      </p>
+      <p class="text-center text-accent2 text-4xl font-bold font-display leading-tight">{{ date }}</p>
       <div id="info-row" class="flex w-full items-center">
         <div class="flex w-full items-center text-left text-sm text-accent2">
           <img :src="weatherIcon" class="w-12 h-12" />
           <div>
-            <p class="text-xs leading-none">
-              {{ Math.round(temperature * 10) / 10 }}&#8457;
-            </p>
+            <p class="text-xs leading-none">{{ Math.round(temperature * 10) / 10 }}&#8457;</p>
             <p class="text-xs leading-none">{{ condition }}</p>
           </div>
         </div>
         <p class="w-full text-center text-sm text-accent2">{{ time }}</p>
-        <p class="w-full text-right text-sm text-accent2">
-          {{ city }}, {{ state }}
-        </p>
+        <p class="w-full text-right text-sm text-accent2">{{ city }}, {{ state }}</p>
       </div>
       <div
         class="w-full h-32 border-2 border-main2 bg-main2 rounded p-4 mt-4 overflow-y-scroll hide-scroll"
       >
-        <p class="text-accent2">
-          {{ description }}
-        </p>
+        <p class="text-accent2">{{ description }}</p>
       </div>
     </div>
   </div>
@@ -107,8 +97,6 @@ export default {
 
 <style>
 #entry-view {
-  width: 32rem;
-
   -webkit-box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);
   -moz-box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);
   box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);

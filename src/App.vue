@@ -1,10 +1,7 @@
 <template>
-  <div id="app" class="w-screen bg-main2">
+  <div id="app" class="w-screen bg-main2 overflow-hidden">
     <transition v-bind:name="transitionName" mode="out-in">
-      <router-view
-        @navigate="toggleNavigateAnimation"
-        @backNavigate="toggleBackAnimation"
-      />
+      <router-view @navigate="toggleNavigateAnimation" @backNavigate="toggleBackAnimation" />
     </transition>
   </div>
 </template>
@@ -100,6 +97,28 @@ export default {
 .left2right-leave-to {
   opacity: 0;
   transform: translateX(100px);
+}
+
+/* -------- */
+.left2rightv2-enter-active,
+.left2rightv2-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+.left2rightv2-leave-active {
+  position: absolute;
+}
+.left2rightv2-enter-to,
+.left2rightv2-leave {
+  opacity: 1;
+}
+.left2rightv2-enter {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.left2rightv2-leave-to {
+  opacity: 0;
+  transform: translateX(750px);
 }
 
 /* --------- */

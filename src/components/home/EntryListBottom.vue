@@ -1,35 +1,35 @@
 <template>
   <div id="entries" class="absolute flex items-center bottom-0 h-48 w-full">
     <ul class="relative flex w-128 h-full items-center mx-auto">
-      <LeftArrow
-        id="left-arrow"
-        v-bind:class="{ 'cursor-not-allowed opacity-50': atEnd }"
-        @click="goBackward"
-        class="trans fill-current text-accent2 cursor-pointer"
-      />
-      <transition-group v-bind:name="transitionName" class="flex mx-auto">
-        <div
-          v-for="entry in visibleEntries"
-          :key="entry.date"
-          :class="{
+      <div class="relative mx-auto">
+        <LeftArrow
+          id="left-arrow"
+          v-bind:class="{ 'cursor-not-allowed opacity-50': atEnd }"
+          @click="goBackward"
+          class="trans fill-current text-accent2 cursor-pointer"
+        />
+        <transition-group v-bind:name="transitionName" class="flex mx-auto">
+          <div
+            v-for="entry in visibleEntries"
+            :key="entry.date"
+            :class="{
             'border-accent2': isSelected(entry)
           }"
-          @click="() => selectEntry(entry)"
-          class="trans entry-item w-40 flex items-center p-2 bg-main1 text-accent2 mx-2 rounded-lg cursor-pointer border-2 border-main1 hover:border-accent2"
-        >
-          <component
-            class="w-8 h-8 m-2"
-            :is="moodImage[entry.rating]"
-          ></component>
-          <p class="select-none">{{ convertTime(entry) }}</p>
-        </div>
-      </transition-group>
-      <RightArrow
-        id="right-arrow"
-        v-bind:class="{ 'cursor-not-allowed opacity-50': atBeginning }"
-        @click="goForward"
-        class="trans fill-current text-accent2 cursor-pointer"
-      />
+            @click="() => selectEntry(entry)"
+            class="trans entry-item w-32 md:w-40 flex items-center p-2 bg-main1 text-accent2 mx-2 rounded-lg cursor-pointer border-2 border-main1 hover:border-accent2"
+          >
+            <component class="w-8 h-8 m-2" :is="moodImage[entry.rating]"></component>
+            <p v-if="!isMobile" class="select-none">{{ convertTime(entry) }}</p>
+            <p v-else class="select-none">{{ convertTimeMobile(entry) }}</p>
+          </div>
+        </transition-group>
+        <RightArrow
+          id="right-arrow"
+          v-bind:class="{ 'cursor-not-allowed opacity-50': atBeginning }"
+          @click="goForward"
+          class="trans fill-current text-accent2 cursor-pointer"
+        />
+      </div>
     </ul>
   </div>
 </template>
@@ -67,10 +67,20 @@ export default {
         2: NeutralEmoji,
         3: HappyEmoji,
         4: VeryHappyEmoji
-      }
+      },
+      isMobile: false
     };
   },
   mounted() {
+    if (window.innerWidth < 500) {
+      this.isMobile = true;
+      console.log("hit");
+      this.maxVisibleEntries = 2;
+    } else {
+      this.isMobile = false;
+      this.maxVisibleEntries = 3;
+    }
+    window.onresize = event => {};
     this.updateVisibleEntries(this.currentOffset);
   },
   computed: {
@@ -100,7 +110,7 @@ export default {
     goBackward: function() {
       if (!this.atEnd) {
         this.currentOffset = this.currentOffset + 1;
-        this.transitionName = "left2right";
+        this.transitionName = "left2rightv2";
 
         this.visibleEntries.pop();
         this.visibleEntries.unshift(
@@ -124,6 +134,11 @@ export default {
     convertTime: function(time) {
       if (time) {
         return moment.unix(time.date).format("MMM D, YYYY");
+      }
+    },
+    convertTimeMobile: function(time) {
+      if (time) {
+        return moment.unix(time.date).format("MMM D");
       }
     },
     addEntry: function() {
@@ -170,11 +185,17 @@ export default {
 
 #left-arrow {
   position: absolute;
-  left: -4rem;
+  top: 0rem;
+  bottom: 0rem;
+  margin: auto;
+  left: -1.5rem;
 }
 
 #right-arrow {
   position: absolute;
-  right: -4rem;
+  top: 0rem;
+  bottom: 0rem;
+  margin: auto;
+  right: -1.5rem;
 }
 </style>
