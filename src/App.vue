@@ -56,4 +56,25 @@ export default {
 #app {
   height: calc(var(--vh, 1vh) * 100);
 }
+
+/* ------- */
+
+.right2left-enter-active,
+.right2left-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.right2left-enter-to,
+.right2left-leave {
+  opacity: 1;
+}
+.right2left-enter {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.right2left-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
 </style>
