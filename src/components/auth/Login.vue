@@ -218,13 +218,4 @@ select:-webkit-autofill:focus {
 label {
   letter-spacing: 1px;
 }
-
-.grow-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.grow-enter, .grow-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  max-height: 0px;
-  opacity: 0;
-}
 </style>
