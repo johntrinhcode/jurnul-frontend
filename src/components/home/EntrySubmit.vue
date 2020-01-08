@@ -198,8 +198,4 @@ export default {
   left: 0;
   margin: auto;
 }
-
-.trans {
-  transition: all 0.5s ease;
-}
 </style>

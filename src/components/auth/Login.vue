@@ -164,7 +164,6 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
   -webkit-text-fill-color: #c9a6a1;
   font-size: inherit;
-  transition: font-size 5000s ease-in-out 0s;
 }
 
 #title {
@@ -220,13 +219,6 @@ label {
   letter-spacing: 1px;
 }
 
-input {
-  transition: all 0.3s ease;
-}
-
-.grow-enter-active {
-  transition: all 0.5s ease;
-}
 .grow-leave-active {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
