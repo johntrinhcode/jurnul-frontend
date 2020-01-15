@@ -1,21 +1,34 @@
 <template>
-  <div id="login" class="flex flex-col">
-    <div>
+  <div id="login" class="relative flex flex-col w-full h-full">
+    <div class="h-full w-full flex flex-col">
+      <div class="h-full"></div>
       <h1
-        id="title"
-        class="w-full md:mt-8 font-display font-bold text-accent2 text-center cursor-default leading-none"
-      >jurnul.</h1>
+        class="font-display font-bold text-accent2 text-center text-4xl cursor-default leading-none"
+      >
+        jurnul
+      </h1>
+      <div class="h-full"></div>
     </div>
-    <div id="login-box" class="mx-auto mt-8 p-8 rounded-lg shadow font-body">
+
+    <div
+      id="login-box"
+      class="mx-8 md:mx-auto my-auto p-4 rounded-lg shadow font-body"
+    >
       <h1
         id="login-header"
         class="text-center text-5xl text-accent2 font-display leading-none"
-      >welcome,</h1>
-      <p class="text-center text-accent1 font-main text-sm">sign into your account</p>
+      >
+        welcome,
+      </h1>
+      <p class="text-center text-accent1 font-main text-sm">
+        sign into your account
+      </p>
       <hr class="border-t border-main2 mt-2" />
       <transition name="grow">
         <div v-if="loginError" class="mt-2">
-          <p class="text-center text-sm text-error">incorrect email or password</p>
+          <p class="text-center text-sm text-error">
+            incorrect email or password
+          </p>
         </div>
       </transition>
       <form @submit="login" class="flex flex-col mt-2 px-4">
@@ -27,9 +40,11 @@
           type="email"
           name="email"
           id="email"
-          class="h-10 rounded pl-2 text-accent1 border-2 border-white focus:border-accent1"
+          class="trans h-10 rounded pl-2 text-accent1 border-2 border-white focus:border-accent1"
         />
-        <label for="password" class="text-accent1 text-sm font-main mt-2">password</label>
+        <label for="password" class="text-accent1 text-sm font-main mt-2"
+          >password</label
+        >
         <input
           required
           v-model="passwordInput"
@@ -37,19 +52,27 @@
           type="password"
           name="password"
           id="password"
-          class="h-10 rounded pl-2 text-accent1 border-2 border-white focus:border-accent1"
+          class="trans h-10 rounded pl-2 text-accent1 border-2 border-white focus:border-accent1"
         />
-        <button class="h-16 rounded text-2xl bg-accent2 mt-4 focus:outline-none hover:bg-accent1">
+        <button
+          class="h-16 rounded text-2xl bg-accent2 mt-4 focus:outline-none hover:bg-accent1"
+        >
           <div v-if="!isLoading" class="text-white">login</div>
           <LoadingSpinner v-else class="flex w-12 mx-auto" />
         </button>
       </form>
     </div>
-    <div class="relative block text-center mt-4">
-      <div id="bottom-options" class="absolute w-full">
-        <div class="text-sm">
+
+    <div class="h-full flex flex-col text-center">
+      <div class="w-full my-auto md:my-4">
+        <div class="text-sm leading-none">
           <p class="inline text-accent1">don't have an account?</p>
-          <p @click="registerRedirect" class="inline text-accent2 pl-2 cursor-pointer">register here</p>
+          <p
+            @click="registerRedirect"
+            class="inline text-accent2 pl-2 cursor-pointer"
+          >
+            register here
+          </p>
         </div>
         <div class="text-sm">
           <p class="inline text-accent1">forgot your password?</p>
@@ -166,19 +189,12 @@ select:-webkit-autofill:focus {
   font-size: inherit;
 }
 
-#title {
-  font-size: 5rem;
-  letter-spacing: 0.15rem;
-}
-
 #login {
   height: calc(var(--vh, 1vh) * 100);
   background-color: #f8e1d7;
 }
 
 #login-box {
-  width: 20rem;
-
   background-color: #fcf2f0;
   -webkit-box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);
   -moz-box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);
@@ -187,8 +203,6 @@ select:-webkit-autofill:focus {
 
 @media (min-width: 768px) {
   #login-box {
-    width: 20rem;
-
     background-color: #fcf2f0;
     -webkit-box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);
     -moz-box-shadow: 0px 10px 9px 0px rgba(0, 0, 0, 0.29);
@@ -209,10 +223,6 @@ select:-webkit-autofill:focus {
 
 #login-header {
   font-weight: 500;
-}
-
-#bottom-options {
-  line-height: 20px;
 }
 
 label {
