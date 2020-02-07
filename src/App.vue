@@ -1,7 +1,10 @@
 <template>
-  <div id="app" class="w-screen bg-main2 overflow-hidden">
+  <div id="app" class="h-full w-full bg-main2 overflow-hidden">
     <transition v-bind:name="transitionName" mode="out-in">
-      <router-view @navigate="toggleNavigateAnimation" @backNavigate="toggleBackAnimation" />
+      <router-view
+        @navigate="toggleNavigateAnimation"
+        @backNavigate="toggleBackAnimation"
+      />
     </transition>
   </div>
 </template>
@@ -23,7 +26,13 @@ export default {
       this.transitionName = "left2right";
     }
   },
-  mounted() {
+  async mounted() {
+    const entries = this.$store.getters.allEntries;
+
+    if (entries.length != 0) {
+      await this.$store.dispatch("selectEntry", entries[entries.length - 1]);
+    }
+
     // Address mobile screens..
     function setDocHeight() {
       document.documentElement.style.setProperty(
@@ -55,6 +64,16 @@ export default {
 
 #app {
   height: calc(var(--vh, 1vh) * 100);
+}
+/* --------- */
+.fade2-enter-active,
+.fade2-leave-active {
+  transition: opacity 0.25s;
+}
+
+.fade2-enter,
+.fade2-leave-to {
+  opacity: 0;
 }
 
 /* ------- */

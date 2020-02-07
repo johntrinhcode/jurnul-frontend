@@ -13,6 +13,7 @@ import "./assets/styles/index.css";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
+
 Vue.use(VueAxios, axios);
 Vue.use(Vuex);
 
@@ -28,6 +29,9 @@ router.beforeEach((to, from, next) => {
   ) {
     next("/login");
   } else {
+    if (to.path == "/") {
+      router.replace({ name: "Home", params: { id: store.getters.userId } });
+    }
     // Validate current token.
     next();
   }

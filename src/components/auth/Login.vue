@@ -36,7 +36,6 @@
         <input
           required
           v-model="emailInput"
-          autocomplete="off"
           type="email"
           name="email"
           id="email"
@@ -140,7 +139,10 @@ export default {
               this.isLoading = false;
             });
           // Redirect user to homepage.
-          this.$router.push("/");
+          this.$router.push({
+            name: "Home",
+            params: { id: this.$store.getters.userId }
+          });
         })
         .catch(error => {
           console.log(error.response.data);

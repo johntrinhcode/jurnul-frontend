@@ -81,6 +81,9 @@ export default new Vuex.Store({
     },
     selectedEntry: state => {
       return state.selectedEntry;
+    },
+    allEntries: state => {
+      return state.userInfo.entries;
     }
   },
   plugins: [createPersistedState()]
